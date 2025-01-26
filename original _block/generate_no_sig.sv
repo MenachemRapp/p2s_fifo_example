@@ -1,4 +1,4 @@
-module fifo_no_sig_sva_params_sva
+module fifo_with_params_sva
 (
 input	clk,
 input	rstn

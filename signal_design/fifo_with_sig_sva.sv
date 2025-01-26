@@ -20,10 +20,6 @@ module fifo_with_sig_sva
     input sig_ADD_MODE
     );
    
-       
-
-   default clocking dc @(posedge clk); endclocking
-   default disable iff (!rstn);
 
     ASM_PARAM_FIFO_DEPTH_STABLE: assume property (@(posedge clk) disable iff (!rstn) $stable(sig_FIFO_DEPTH));
     ASM_PARAM_FIFO_DEPTH_RANGE: assume property (@(posedge clk) disable iff (!rstn) sig_FIFO_DEPTH==2 || sig_FIFO_DEPTH==4 || sig_FIFO_DEPTH==8);

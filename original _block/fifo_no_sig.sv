@@ -1,5 +1,5 @@
 
-module fifo_no_sig
+module fifo_with_params
   #(
     parameter FIFO_DEPTH = 8,
     parameter FIFO_WIDTH = 11,

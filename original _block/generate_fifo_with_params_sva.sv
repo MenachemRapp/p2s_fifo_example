@@ -1,4 +1,4 @@
-module fifo_with_params_sva
+module generate_fifo_with_params_sva
 (
 input	clk,
 input	rstn
@@ -31,13 +31,13 @@ logic [gen_FIFO_WIDTH-1:0] pop_data ;
 logic  empty ;
 logic  full ;
 
-fifo_no_sig_sva#(
+fifo_with_params_sva#(
 .FIFO_DEPTH (gen_FIFO_DEPTH),
 .FIFO_WIDTH (gen_FIFO_WIDTH),
 .NUM_LOOPS (gen_NUM_LOOPS),
 .ADD_MODE (gen_ADD_MODE)
 )
-u_dut_fifo_no_sig_sva
+u_dut_fifo_with_params_sva
 (
 .*
 );

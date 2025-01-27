@@ -59,7 +59,7 @@ module fifo_with_params
      end
 
    
-   reg [NUM_LOOPS-1:0] pipe_data [FIFO_WIDTH-1:0];
+   reg [FIFO_WIDTH-1:0] pipe_data [NUM_LOOPS-1:0] ;
    reg [NUM_LOOPS:1]                   pop_shift;
    
    always @(posedge clk or negedge rstn)

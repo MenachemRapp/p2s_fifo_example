@@ -27,7 +27,7 @@ module fifo_with_sig #
   wire [$clog2(max_FIFO_DEPTH)-1:0] msk_wptr;
   wire [$clog2(max_FIFO_DEPTH)-1:0] msk_rptr;
   wire [$clog2(max_FIFO_DEPTH)-1:0] msk_level;
-  wire [max_NUM_LOOPS-1:0] msk_pipe_data;
+  wire [max_FIFO_WIDTH-1:0] msk_pipe_data;
   wire [max_NUM_LOOPS:1] msk_pop_shift;
   assign msk_push_data = (1'b1 << sig_FIFO_WIDTH - 1 - 0 + 1) - 'b1;
   assign msk_pop_data = (1'b1 << sig_FIFO_WIDTH - 1 - 0 + 1) - 'b1;
@@ -36,7 +36,7 @@ module fifo_with_sig #
   assign msk_wptr = sig_FIFO_DEPTH - 'b1;
   assign msk_rptr = sig_FIFO_DEPTH - 'b1;
   assign msk_level = sig_FIFO_DEPTH - 'b1;
-  assign msk_pipe_data = (1'b1 << sig_NUM_LOOPS - 1 - 0 + 1) - 'b1;
+  assign msk_pipe_data = (1'b1 << sig_FIFO_WIDTH - 1 - 0 + 1) - 'b1;
   assign msk_pop_shift = (1'b1 << sig_NUM_LOOPS - 1 + 1) - 'b1;
   integer i;
   reg [max_FIFO_WIDTH-1:0] pop_data_internal;
@@ -64,7 +64,7 @@ module fifo_with_sig #
     full = (level & msk_level) == sig_FIFO_DEPTH - 1;
   end
 
-  reg [max_NUM_LOOPS-1:0] pipe_data [max_FIFO_WIDTH-1:0];
+  reg [max_FIFO_WIDTH-1:0] pipe_data [max_NUM_LOOPS-1:0];
   reg [max_NUM_LOOPS:1] pop_shift;
 
   always @(posedge clk or negedge rstn) if(!rstn) begin

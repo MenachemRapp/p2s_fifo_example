@@ -14,3 +14,7 @@ The original block has:
 The generated signal design has:
 - A DUT with input signals instead of parameters - *fifo_with_sig.sv*
 - A single testbench for all parameter options - *fifo_with_sig_sva.sv* **- this should be the top modlue**
+
+</br>
+
+**Feel free to compare the results with your favorite formal verification tool.**
